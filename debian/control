@@ -1,0 +1,43 @@
+Source: rust-rayon-core
+Section: rust
+Priority: optional
+Build-Depends: debhelper (>= 12),
+ dh-cargo (>= 25),
+ cargo:native <!nocheck>,
+ rustc:native <!nocheck>,
+ libstd-rust-dev <!nocheck>,
+ librust-crossbeam-channel-0.5+default-dev <!nocheck>,
+ librust-crossbeam-deque-0.8+default-dev (>= 0.8.1-~~) <!nocheck>,
+ librust-crossbeam-utils-0.8+default-dev <!nocheck>,
+ librust-num-cpus-1+default-dev (>= 1.2-~~) <!nocheck>
+Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+Uploaders:
+ Wolfgang Silbermayr <wolfgang@silbermayr.at>,
+ kpcyrd <git@rxv.cc>,
+ Daniel Kahn Gillmor <dkg@fifthhorseman.net>
+Standards-Version: 4.6.1
+Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/rayon-core]
+Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/rayon-core
+X-Cargo-Crate: rayon-core
+Rules-Requires-Root: no
+
+Package: librust-rayon-core-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-crossbeam-channel-0.5+default-dev,
+ librust-crossbeam-deque-0.8+default-dev (>= 0.8.1-~~),
+ librust-crossbeam-utils-0.8+default-dev,
+ librust-num-cpus-1+default-dev (>= 1.2-~~)
+Provides:
+ librust-rayon-core+default-dev (= ${binary:Version}),
+ librust-rayon-core-1-dev (= ${binary:Version}),
+ librust-rayon-core-1+default-dev (= ${binary:Version}),
+ librust-rayon-core-1.10-dev (= ${binary:Version}),
+ librust-rayon-core-1.10+default-dev (= ${binary:Version}),
+ librust-rayon-core-1.10.1-dev (= ${binary:Version}),
+ librust-rayon-core-1.10.1+default-dev (= ${binary:Version})
+Description: Core APIs for Rayon - Rust source code
+ This package contains the source for the Rust rayon-core crate, packaged by
+ debcargo for use with cargo and dh-cargo.

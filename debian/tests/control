@@ -1,0 +1,14 @@
+Test-Command: /usr/share/cargo/bin/cargo-auto-test rayon-core 1.10.1 --all-targets --all-features
+Features: test-name=rust-rayon-core:@
+Depends: dh-cargo (>= 18), librust-libc-0.2+default-dev, librust-rand-0.8+default-dev, librust-rand-xorshift-0.3+default-dev, librust-scoped-tls-1+default-dev, @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test rayon-core 1.10.1 --all-targets
+Features: test-name=librust-rayon-core-dev:default
+Depends: dh-cargo (>= 18), librust-libc-0.2+default-dev, librust-rand-0.8+default-dev, librust-rand-xorshift-0.3+default-dev, librust-scoped-tls-1+default-dev, @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test rayon-core 1.10.1 --all-targets --no-default-features
+Features: test-name=librust-rayon-core-dev:
+Depends: dh-cargo (>= 18), librust-libc-0.2+default-dev, librust-rand-0.8+default-dev, librust-rand-xorshift-0.3+default-dev, librust-scoped-tls-1+default-dev, @
+Restrictions: allow-stderr, skip-not-installable
